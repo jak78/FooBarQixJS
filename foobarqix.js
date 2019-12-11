@@ -6,12 +6,13 @@ function compute(number) {
     if (number % 7 === 0) results.push('Qix');
     if(results.length > 0) isSubstituted = true;
     
-    const digitsToSubstitute = {3: 'Foo', 5: 'Bar', 7: 'Qix', 0: '*'};
+    const digitsToSubstitute = {3: 'Foo', 5: 'Bar', 7: 'Qix'};
     number.split('').forEach( (digit) => {
         if(digitsToSubstitute[digit]) {
             results.push(digitsToSubstitute[digit]);
-            if(digit !== '0') isSubstituted = true
+            isSubstituted = true
         }
+        if(digit==='0') results.push('*')
     })
 
     if (isSubstituted) {

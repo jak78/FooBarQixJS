@@ -49,6 +49,7 @@ describe('digits substitution', () => {
         expect(compute('303')).toBe('FooFoo*Foo');
         expect(compute('105')).toBe('FooBarQix*Bar');
         expect(compute('10101')).toBe('FooQix**');
+        expect(compute('10104')).toBe('Foo**');
     });
 })
 
