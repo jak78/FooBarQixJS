@@ -1,4 +1,4 @@
 function compute(number) {
-    return '1'
+    return number
 }
 module.exports = compute;
