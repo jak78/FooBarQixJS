@@ -4,14 +4,13 @@ function compute(number) {
     if (number % 5 === 0) results.push('Bar');
     if (number % 7 === 0) results.push('Qix');
     
+    const digitsToSubstitute = {3: 'Foo', 5: 'Bar', 7: 'Qix'};
     number.split('').forEach( (digit) => {
-        if(digit === '3') results.push('Foo');
-        if(digit === '5') results.push('Bar');
-        if(digit === '7') results.push('Qix');
+        if(digitsToSubstitute[digit]) results.push(digitsToSubstitute[digit]);
     })
 
     if (noRuleApplied()) {
-        return number;
+        return number.replace('0','*');
     } else {
         return concatenatedResults();
     }

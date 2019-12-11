@@ -44,6 +44,9 @@ describe('digits substitution', () => {
     test('returns Qix when the number contains a 7 but is not divisible by 7', () => {
         expect(compute('71')).toBe('Qix');
     });
+    test('returns * when the number contains a 0', () => {
+        expect(compute('101')).toBe('1*1');
+    });
 })
 
 
