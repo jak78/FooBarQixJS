@@ -10,7 +10,7 @@ describe('multiples', () => {
     });
 
     test('returns Bar when the number is a multiple of 5', () => {
-        expect(compute('10')).toBe('Bar');
+        expect(compute('10')).toBe('Bar*');
     });
 
     test('returns Qix when the number is a multiple of 7', () => {
@@ -18,11 +18,11 @@ describe('multiples', () => {
     });
 
     test('returns FooBar when the number is a multiple of both 3 and 5', () => {
-        expect(compute('30')).toBe('FooBarFoo');
+        expect(compute('30')).toBe('FooBarFoo*');
     });
 
     test('returns FooBarQix when the number is a multiple of 3, 5 & 7', () => {
-        expect(compute('210')).toBe('FooBarQix');
+        expect(compute('210')).toBe('FooBarQix*');
     });
 })
 describe('digits substitution', () => {
@@ -46,6 +46,9 @@ describe('digits substitution', () => {
     });
     test('returns * when the number contains a 0', () => {
         expect(compute('101')).toBe('1*1');
+        expect(compute('303')).toBe('FooFoo*Foo');
+        expect(compute('105')).toBe('FooBarQix*Bar');
+        expect(compute('10101')).toBe('FooQix**');
     });
 })
 
