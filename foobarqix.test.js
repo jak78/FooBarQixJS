@@ -32,6 +32,12 @@ describe('digits substitution', () => {
     test('returns Foo when the number contains a 3 and is divisible by 3', () => {
         expect(compute('333')).toBe('FooFooFooFoo');
     });
+    test('returns Bar when the number contains a 5 and is divisible by 5', () => {
+        expect(compute('55')).toBe('BarBarBar');
+    });
+    test('returns Bar when the number contains a 5 but is not divisible by 5', () => {
+        expect(compute('52')).toBe('Bar');
+    });
 })
 
 

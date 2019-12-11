@@ -6,6 +6,7 @@ function compute(number) {
     
     number.split('').forEach( (digit) => {
         if(digit === '3') results.push('Foo');
+        if(digit === '5') results.push('Bar');
     })
 
     if (noRuleApplied()) {
