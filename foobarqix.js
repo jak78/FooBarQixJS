@@ -1,28 +1,42 @@
 function compute(number) {
     let results = [];
-    let isSubstituted = false;
-    if (number % 3 === 0) results.push('Foo');
-    if (number % 5 === 0) results.push('Bar');
-    if (number % 7 === 0) results.push('Qix');
-    if(results.length > 0) isSubstituted = true;
+    let isFooBarQixMode = false
+    if (number % 3 === 0) addSubstitute('Foo', results);
+    if (number % 5 === 0) addSubstitute('Bar', results);
+    if (number % 7 === 0) addSubstitute('Qix', results);
     
-    const digitsToSubstitute = {3: 'Foo', 5: 'Bar', 7: 'Qix'};
+    const digitsToSubstitute = {3: 'Foo', 5: 'Bar', 7: 'Qix', 0: '*'};
     number.split('').forEach( (digit) => {
         if(digitsToSubstitute[digit]) {
-            results.push(digitsToSubstitute[digit]);
-            isSubstituted = true
+            addSubstitute(digitsToSubstitute[digit], results);
+        } else {
+            addOriginalDigit(digit);
         }
-        if(digit==='0') results.push('*')
-    })
 
-    if (isSubstituted) {
-        return concatenatedResults();
+    })
+    if(isFooBarQixMode) {
+        return toString(resultsWithoutDigits())
     } else {
-        return number.replace('0','*');
+        return toString(results);
     }
 
-    function concatenatedResults() {
+    function toString(results) {
         return results.join('');
+    }
+
+    function resultsWithoutDigits() {
+        return results.filter(r => !r.match(/\d/));
+    }
+
+    function addOriginalDigit(digit) {
+        results.push(digit)
+    }
+
+    function addSubstitute(substitute, results) {
+        results.push(substitute);
+        if( substitute !== '*') {
+            isFooBarQixMode = true;
+        }
     }
 }
 
