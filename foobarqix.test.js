@@ -27,7 +27,7 @@ describe('multiples', () => {
 })
 describe('digits substitution', () => {
     test('returns Foo when the number contains a 3 but is not divisible by 3', () => {
-        expect(compute('337')).toBe('FooFoo');
+        expect(compute('331')).toBe('FooFoo');
     });
     test('returns Foo when the number contains a 3 and is divisible by 3', () => {
         expect(compute('333')).toBe('FooFooFooFoo');
@@ -37,6 +37,12 @@ describe('digits substitution', () => {
     });
     test('returns Bar when the number contains a 5 but is not divisible by 5', () => {
         expect(compute('52')).toBe('Bar');
+    });
+    test('returns Qix when the number contains a 7 and is divisible by 7', () => {
+        expect(compute('77')).toBe('QixQixQix');
+    });
+    test('returns Qix when the number contains a 7 but is not divisible by 7', () => {
+        expect(compute('71')).toBe('Qix');
     });
 })
 
